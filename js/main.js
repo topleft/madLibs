@@ -1,34 +1,26 @@
-$(function() {
+$(document).ready(function(){
+  $("#btn-click").on('click', function(e) {
+    e.preventDefault();
+    var name = $("#name").val();
+    $(".name").empty().html(name);
 
-  // hide the story from view
-  $("#story").hide();
+    var  noun = $("#noun").val();
+    $(".noun").empty().html(noun);
 
-  // ---- event handler ---- //
-  $("#btn-click").click(function(e) {
+    var  verb = $("#verb").val();
+    $(".verb").empty().html(verb);
 
-    // grab the values from the input boxes, then append them to the DOM
-    $(".person").empty().append($("input.person").val());
-    $(".adjective").empty().append($("input.adjective").val());
-    $(".noun").empty().append($("input.noun").val());
-    $(".insect").empty().append($("input.insect").val());
-    $(".noun2").empty().append($("input.plural-noun").val());
-    $(".verb").empty().append($("input.verb").val());
+    var  noun2 = $("#noun2").val();
+    $(".noun2").empty().html(noun2);
 
-    // show the story
     $("#story").show();
-
-    // empty the form's values
-    $(':input').val('');
-
-    // hide the questions
-    $("#questions").hide();
-
+    $("#btn-clear").show();
   });
 
-  // ---- event handler ---- //
-  $("#play-btn").click(function(e) {
-    $("#questions").show();   
-    $("#story").hide();
+  $("#btn-clear").on('click', function() {
+    console.log("click");
+    $("#my-form").trigger("reset");
+    $("span").empty();
   });
 
 });
